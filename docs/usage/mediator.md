@@ -92,9 +92,9 @@ public void ConfigureServices(IServiceCollection services)
 {
     services.AddMassTransit(x =>
     {
-        r.AddConsumers(Assembly.GetExecutingAssembly());
+        x.AddConsumers(Assembly.GetExecutingAssembly());
 
-        r.AddMediator();
+        x.AddMediator();
     });
 }
 ```
@@ -108,10 +108,10 @@ public void ConfigureServices(IServiceCollection services)
 {
     services.AddMassTransit(x =>
     {
-        r.AddSagaStateMachine<OrderStateMachine, OrderState>()
+        x.AddSagaStateMachine<OrderStateMachine, OrderState>()
             .InMemoryRepository();
 
-        r.AddMediator();
+        x.AddMediator();
     });
 }
 ```
